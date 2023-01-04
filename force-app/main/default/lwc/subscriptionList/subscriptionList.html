@@ -1,0 +1,90 @@
+<template>
+  <article class="slds-card" style="padding: 10px 0px 10px 0px;">
+    <div class="slds-card__header slds-grid" style="border-bottom:1px solid #D4D4D4; background: #f3f3f3; padding-bottom: 12px;">
+      <header class="slds-media slds-media_center slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+          <lightning-icon icon-name="standard:contract_line_item"></lightning-icon>
+        </div>
+        <div class="slds-media__body">
+          <h2 class="slds-page-header__title slds-text-heading_large slds-text-title_caps slds-text-title_bold">
+            All Active Subscriptions
+          </h2>
+        </div>
+      </header>
+    </div>
+
+    <template if:true={data}>
+
+      <div class="slds-card__body slds-card__body_inner slds-card_boundary slds-m-horizontal_small bggrey" style="border-bottom:1px solid #D4D4D4; background: #f3f3f3; ">
+
+
+        <div class="slds-grid slds-gutters  slds-m-bottom_small ">
+          <div class="slds-col slds-size_1-of-4">
+            <article class="">
+              <div class="slds-card__body slds-card__body_inner ">
+                <dl class="slds-list_horizontal slds-wrap slds-align_absolute-center">
+                  <dt class="slds-text-title_bold columns slds-text-color_success">Subscription #</dt>
+                </dl>
+
+              </div>
+
+            </article>
+          </div>
+          <div class="slds-col slds-size_1-of-4">
+            <article class="">
+              <div class="slds-card__body slds-card__body_inner ">
+                <dl class="slds-list_horizontal slds-wrap slds-align_absolute-center">
+                  <dt class="slds-text-title_bold columns slds-text-color_success">Product</dt>
+                </dl>
+
+              </div>
+            </article>
+          </div>
+          <div class="slds-col slds-size_1-of-4">
+            <article class="">
+              <div class="slds-card__body slds-card__body_inner ">
+                <dl class="slds-list_horizontal slds-wrap slds-align_absolute-center">
+                  <dt class="slds-text-title_bold columns slds-text-color_success">Subscription Start Date</dt>
+                </dl>
+              </div>
+            </article>
+          </div>
+          <div class="slds-col slds-size_1-of-4">
+            <article class="">
+              <div class="slds-card__body slds-card__body_inner ">
+                <dl class="slds-list_horizontal slds-wrap slds-align_absolute-center">
+                  <dt class="slds-text-title_bold columns slds-text-color_success">Subscription End Date</dt>
+                </dl>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="slds-grid slds-gutters  slds-m-bottom_small ">
+          <ul class="recordlist slds-size_1-of-1" style="border-bottom:1px solid #D4D4D4; background: #ffffff; ">
+            <template for:each={data} for:item="subItem" >
+              
+              <li key={subItem.name} class="records slds-grid slds-gutters slds-var-m-right_medium"><!-- -->
+                <dl class="slds-list_horizontal slds-wrap slds-col slds-size_1-of-4 slds-m-bottom_small ">
+                  <dt class="slds-m-top_x-small slds-text-color_weak  slds-text-title_bold slds-align_absolute-center slds-text-align_center">
+                    {subItem.name}</dt>
+                </dl>
+                <dl class="slds-list_horizontal slds-wrap slds-col slds-size_1-of-4 slds-m-bottom_small ">
+                  <dt class="slds-m-top_x-small slds-text-color_weak  slds-text-title_bold slds-align_absolute-center slds-text-align_center">
+                    {subItem.productname}</dt>
+                </dl>
+                <dl class="slds-list_horizontal slds-wrap slds-col  slds-size_1-of-4 slds-m-bottom_small ">
+                  <dt class="slds-m-top_x-small slds-text-color_weak  slds-text-title_bold slds-align_absolute-center slds-text-align_center">
+                    {subItem.start}</dt>
+                </dl>
+                <dl class="slds-list_horizontal slds-wrap slds-col  slds-size_1-of-4 slds-m-bottom_small ">
+                  <dt class="slds-m-top_x-small slds-text-color_weak slds-text-title_bold slds-align_absolute-center slds-text-align_center">
+                    {subItem.end}</dt>
+                </dl>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </template>
+  </article>
+</template>
